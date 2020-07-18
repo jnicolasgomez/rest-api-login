@@ -1,5 +1,6 @@
 package com.demo.tyba.login.controllers;
 
+import com.demo.tyba.login.models.JwtToken;
 import com.demo.tyba.login.models.User;
 import com.demo.tyba.login.services.UserService;
 import io.jsonwebtoken.Jwts;
@@ -13,8 +14,6 @@ import javax.servlet.ServletException;
 import java.util.Date;
 
 @RestController
-@RequestMapping(value = "/api/")
-
 @CrossOrigin(origins = "*")
 public class LoginController {
     @Autowired
@@ -41,7 +40,7 @@ public class LoginController {
         jwtToken = Jwts.builder().setSubject(name).claim("roles", "user").setIssuedAt(new Date()).signWith(
                 SignatureAlgorithm.HS256, "secretkey").compact();
 
-        return new ResponseEntity<>(jwtToken, HttpStatus.OK);
+        return new ResponseEntity<>(new JwtToken(jwtToken), HttpStatus.OK);
 
     }
 
