@@ -40,7 +40,7 @@ Response Body:
 
 **GET /api/user/history/**
 
-Make sure to add the Authorization Hedare token ex:
+Make sure to add the Authorization Header token ex:
 `Authorization, Bearer {auth token}`
 
 Reponse Body:
