@@ -1,5 +1,5 @@
 # rest-api-login
-Rest API with login made in Java
+Rest API with login made in Java, uses jwt Token for authentication
 
 ### Getting Started
 1. Clonar el repositorio
@@ -34,6 +34,9 @@ Body:
 
 
 **GET /api/user/history/**
+
+**GET /api/restaurant/** (Not implemented yet)
+
 
 
 
