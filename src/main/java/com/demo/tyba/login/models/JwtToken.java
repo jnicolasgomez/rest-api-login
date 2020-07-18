@@ -1,9 +1,9 @@
 package com.demo.tyba.login.models;
 
-public class jwtToken {
+public class JwtToken {
     String accessToken;
 
-    public jwtToken(String accessToken) {
+    public JwtToken(String accessToken) {
         this.accessToken = accessToken;
     }
 

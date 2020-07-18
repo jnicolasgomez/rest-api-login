@@ -40,6 +40,7 @@ public class LoginController {
         }
         jwtToken = Jwts.builder().setSubject(name).claim("roles", "user").setIssuedAt(new Date()).signWith(
                 SignatureAlgorithm.HS256, "secretkey").compact();
+
         return new ResponseEntity<>(jwtToken, HttpStatus.OK);
 
     }
