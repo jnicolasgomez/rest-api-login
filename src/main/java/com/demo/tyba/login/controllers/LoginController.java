@@ -2,12 +2,15 @@ package com.demo.tyba.login.controllers;
 
 import com.demo.tyba.login.models.User;
 import com.demo.tyba.login.services.UserService;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.ServletException;
+import java.util.Date;
 
 @RestController
 @RequestMapping(value = "/api/")
@@ -23,8 +26,7 @@ public class LoginController {
     }
     @RequestMapping(value = "/login/", method = RequestMethod.POST)
     public ResponseEntity<?> login(@RequestBody User user) throws ServletException {
-        //TODO: implement jwt token
-        String jwtToken = "";
+        String jwtToken;
         String name = user.getUserName();
         String password = user.getPassword();
         User userData = userService.getUserByUserName(name);
@@ -36,6 +38,8 @@ public class LoginController {
         if (!password.equals(pwd)) {
             throw new ServletException("Invalid login. Please check your name and password.");
         }
+        jwtToken = Jwts.builder().setSubject(name).claim("roles", "user").setIssuedAt(new Date()).signWith(
+                SignatureAlgorithm.HS256, "secretkey").compact();
         return new ResponseEntity<>(jwtToken, HttpStatus.OK);
 
     }
