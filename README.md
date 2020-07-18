@@ -14,7 +14,7 @@ Rest API with login made in Java, uses jwt Token for authentication
 
 ### Endpoints
 
-**POST /api/register/**
+**POST /register/**
 
 Request Body:
 
@@ -23,7 +23,7 @@ Request Body:
     "password": "123"
 }`
 
-**POST /api/login/**
+**POST /login/**
 
 Request Body:
 
@@ -34,6 +34,9 @@ Request Body:
 
 
 **GET /api/user/history/**
+
+Make sure to add the Authorization Hedare token ex:
+`Authorization Bearer {auth token}`
 
 Reponse Body:
 
