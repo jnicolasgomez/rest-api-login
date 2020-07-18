@@ -32,11 +32,16 @@ Request Body:
     "password": "123"
 }`
 
+Response Body:
+`{
+    "accessToken": "eyJhbGciOiJI......."
+}`
+
 
 **GET /api/user/history/**
 
 Make sure to add the Authorization Hedare token ex:
-`Authorization Bearer {auth token}`
+`Authorization, Bearer {auth token}`
 
 Reponse Body:
 
