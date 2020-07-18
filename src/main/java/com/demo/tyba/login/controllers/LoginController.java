@@ -21,9 +21,22 @@ public class LoginController {
     public ResponseEntity<?> controllerGetOrders(){
         return new ResponseEntity<>("Hello World", HttpStatus.ACCEPTED);
     }
-    @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<?> controllersPostCoupon(@RequestBody User user){
+    @RequestMapping(value = "/login/", method = RequestMethod.POST)
+    public ResponseEntity<?> login(@RequestBody User user) throws ServletException {
+        //TODO: implement jwt token
+        String jwtToken = "";
+        String name = user.getUserName();
+        String password = user.getPassword();
+        User userData = userService.getUserByUserName(name);
+        if (userData == null){
+            return new ResponseEntity<>("User not found", HttpStatus.NOT_FOUND);
+        }
 
+        String pwd = userData.getPassword();
+        if (!password.equals(pwd)) {
+            throw new ServletException("Invalid login. Please check your name and password.");
+        }
+        return new ResponseEntity<>(jwtToken, HttpStatus.OK);
 
     }
 
