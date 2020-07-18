@@ -16,7 +16,7 @@ Rest API with login made in Java, uses jwt Token for authentication
 
 **POST /api/register/**
 
-Body:
+Request Body:
 
 `{
     "userName": "user1",
@@ -25,7 +25,7 @@ Body:
 
 **POST /api/login/**
 
-Body:
+Request Body:
 
 `{
     "userName": "user1",
@@ -35,7 +35,29 @@ Body:
 
 **GET /api/user/history/**
 
+Reponse Body:
+
+`[
+    {
+        "amount": 130000.0,
+        "name": "retiro",
+        "date": "2020-07-18T17:34:39.142+00:00"
+    },
+    {
+        "amount": 15000.0,
+        "name": "retiro",
+        "date": "2020-07-18T17:34:39.142+00:00"
+    },
+    {
+        "amount": 600000.0,
+        "name": "consignacion",
+        "date": "2020-07-18T17:34:39.142+00:00"
+    }
+]`
+
 **GET /api/restaurant/** (Not implemented yet)
+
+
 
 
 
