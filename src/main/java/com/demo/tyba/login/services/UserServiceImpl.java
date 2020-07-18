@@ -24,16 +24,6 @@ public class UserServiceImpl implements UserService{
         return user;
     }
 
-    @Override
-    public User getUserByEmail(String email){
-        User user = null;
-        try {
-            user = userRepo.findByEmail(email.toLowerCase());
-        } catch (Exception e) {
-            Logger.getLogger(UserServiceImpl.class.getName()).log(Level.SEVERE, "UserServiceImpl, getUserByEmail, param: " + email);
-        }
-        return user;
-    }
 
     @Override
     public User createUser(User newUser) {

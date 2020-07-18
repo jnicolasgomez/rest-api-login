@@ -1,10 +1,13 @@
 package com.demo.tyba.login.repositories;
 
 import com.demo.tyba.login.models.User;
+import org.springframework.stereotype.Service;
 
+import javax.swing.plaf.synth.SynthEditorPaneUI;
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class UserRepositoryMock implements UserRepository{
     List<User> users = new ArrayList<>();
 
@@ -17,16 +20,17 @@ public class UserRepositoryMock implements UserRepository{
 
     @Override
     public User findByUserName(String userName) {
-        return null;
-    }
-
-    @Override
-    public User findByEmail(String email) {
+        for (User user : users){
+            if (user.getUserName().equals(userName)){
+                return user;
+            }
+        }
         return null;
     }
 
     @Override
     public void saveUser(User user) {
-
+        users.add(user);
+        System.out.println(users.toString());
     }
 }
