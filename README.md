@@ -3,7 +3,7 @@ Rest API with login made in Java, uses jwt Token for authentication
 
 ### Getting Started
 1. Clonar el repositorio
-2. Para ejecutar con maven, en la carpeta del repositorio ingresar los siguientes comandos 
+2. Para ejecutar con maven, en la carpeta del proyecto ingresar los siguientes comandos 
 
   `mvn compile`
   
@@ -14,7 +14,7 @@ Rest API with login made in Java, uses jwt Token for authentication
 
 ### Endpoints
 
-**POST /api/register/**
+**POST /register/**
 
 Request Body:
 
@@ -23,17 +23,25 @@ Request Body:
     "password": "123"
 }`
 
-**POST /api/login/**
+**POST /login/**
 
 Request Body:
 
 `{
     "userName": "user1",
     "password": "123"
+}`
+
+Response Body:
+`{
+    "accessToken": "eyJhbGciOiJI......."
 }`
 
 
 **GET /api/user/history/**
+
+Make sure to add the Authorization Header token ex:
+`Authorization, Bearer {auth token}`
 
 Reponse Body:
 
