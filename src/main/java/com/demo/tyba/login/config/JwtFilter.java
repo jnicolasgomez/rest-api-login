@@ -41,7 +41,8 @@ public class JwtFilter
 
             if ( authHeader == null || !authHeader.startsWith( "Bearer " ) )
             {
-                throw new ServletException( "Missing or invalid Authorization header" );
+                response.sendError(HttpServletResponse.SC_BAD_REQUEST,  "Missing or invalid Authorization header" );
+                return ;
             }
 
             final String token = authHeader.substring( 7 );
@@ -53,7 +54,8 @@ public class JwtFilter
             }
             catch ( final SignatureException e )
             {
-                throw new ServletException( "Invalid token" );
+                response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Invalid token" );
+                return ;
             }
 
             filterChain.doFilter( servletRequest, response );

@@ -30,12 +30,12 @@ public class LoginController {
         String password = user.getPassword();
         User userData = userService.getUserByUserName(name);
         if (userData == null){
-            return new ResponseEntity<>("User not found", HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("Wrong credentials", HttpStatus.FORBIDDEN);
         }
 
         String pwd = userData.getPassword();
         if (!password.equals(pwd)) {
-            throw new ServletException("Invalid login. Please check your name and password.");
+            return new ResponseEntity<>("Wrong credentials", HttpStatus.FORBIDDEN);
         }
         jwtToken = Jwts.builder().setSubject(name).claim("roles", "user").setIssuedAt(new Date()).signWith(
                 SignatureAlgorithm.HS256, "secretkey").compact();
