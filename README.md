@@ -37,8 +37,8 @@ Request Body:
 
 Reponse Body:
 
-`[
-    {
+`[\n
+    {\n
         "amount": 130000.0,
         "name": "retiro",
         "date": "2020-07-18T17:34:39.142+00:00"
