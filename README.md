@@ -3,7 +3,7 @@ Rest API with login made in Java, uses jwt Token for authentication
 
 ### Getting Started
 1. Clonar el repositorio
-2. Para ejecutar con maven, en la carpeta del repositorio ingresar los siguientes comandos 
+2. Para ejecutar con maven, en la carpeta del proyecto ingresar los siguientes comandos 
 
   `mvn compile`
   
